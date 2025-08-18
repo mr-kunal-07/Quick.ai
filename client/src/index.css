@@ -1,6 +1,7 @@
 
 @import "tailwindcss";
 
+
 @theme{
     --color-primary: #AA14F0;
 }
@@ -12,4 +13,14 @@
 
 .cl-drawerRoot{
     z-index: 10;
+}
+
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, button {
+  font-family: 'Roboto', sans-serif;
 }
