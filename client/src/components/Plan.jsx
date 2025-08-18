@@ -3,14 +3,25 @@ import React from 'react'
 
 const Plan = () => {
   return (
-    <div className='max-w-2xl mx-auto z-20 my-28'>
-      <div className="text-center">
-        <h2 className="text-slate-700 text-[42px] font-semibold">Choose Your Plan</h2>
-        <p  className='text-gray-500 max-w-lg mx-auto'>Start for free and scale up as you grow. Find the perfect plan for your content creation needs.</p>
+    <div className="relative py-24 px-6 sm:px-12 lg:px-20 bg-gradient-to-b from-gray-50 to-white">
+      {/* Section Heading */}
+      <div className="text-center max-w-2xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-800">
+          Choose Your{" "}
+          <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
+            Plan
+          </span>
+        </h2>
+        <p className="mt-3 text-gray-500 max-w-lg mx-auto text-sm sm:text-base">
+          Start for free and scale up as you grow. Find the perfect plan for your content creation needs.
+        </p>
       </div>
-      <div className=" mt-14 max-sm:mx-8 ">
 
-        <PricingTable />
+      {/* Pricing Table */}
+      <div className="mt-16 max-w-4xl mx-auto">
+        <div className="bg-white rounded-2xl p-6 sm:p-10">
+          <PricingTable />
+        </div>
       </div>
     </div>
   )

@@ -4,27 +4,54 @@ import { useNavigate } from 'react-router-dom'
 import { useUser } from '@clerk/clerk-react'
 
 const AiTools = () => {
-
-    const navigate = useNavigate()
-    const {user} = useUser();
+  const navigate = useNavigate()
+  const { user } = useUser()
 
   return (
-    <div className='px-4 sm:px-20 xl:px-32 my-24'>
+    <div className="px-4 sm:px-20 xl:px-32 py-6">
+      {/* Section Heading */}
       <div className="text-center">
-        <h2 className="text-slate-700 text-[42px] font-semibold">Powerful AI tools</h2>
-        <p className='text-gray-500 max-w-lg mx-auto'>Everything you need to create, enhance, and optimize your content with cutting-edge AI technology</p>
+        <h2 className="text-3xl sm:text-4xl font-bold text-gray-800">
+          Powerful{" "}
+          <span className="bg-gradient-to-r from-primary to-purple-500 bg-clip-text text-transparent">
+            AI tools
+          </span>
+        </h2>
+        <p className="mt-3 text-gray-500 max-w-xl mx-auto text-sm sm:text-base">
+          Everything you need to create, enhance, and optimize your content with
+          cutting-edge AI technology
+        </p>
       </div>
 
-      <div className="flex flex-wrap mt-10 justify-center">
-        
-        {AiToolsData.map((tool, index)=>(
-            <div key={index} className='p-8 m-4 max-w-xs rounded-lg bg-[#FDFDFE] shadow-lg border border-gray-100 hover:-translate-y-1 transition-all duration-300 cursor-pointer' onClick={()=> user && navigate(tool.path)}>
-                <tool.Icon className='w-12 h-12 text-white rounded-xl' style={{background: `linear-gradient(to bottom, ${tool.bg.from}, ${tool.bg.to})`}} />
-                <h3 className="mt-6 mb-3 text-lg font-semibold">{tool.title} </h3>
-                <p className="text-gray-400 text-sm max-w-[95%]">{tool.description} </p>
-
-
+      {/* Tools Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-14">
+        {AiToolsData.map((tool, index) => (
+          <div
+            key={index}
+            onClick={() => user && navigate(tool.path)}
+            className="group p-8 rounded-2xl bg-white shadow-md border border-gray-100 
+                       hover:shadow-xl hover:-translate-y-2 active:scale-95 transition-all duration-300 cursor-pointer"
+          >
+            {/* Icon */}
+            <div
+              className="w-14 h-14 flex items-center justify-center rounded-xl text-white text-2xl shadow-md"
+              style={{
+                background: `linear-gradient(to bottom, ${tool.bg.from}, ${tool.bg.to})`,
+              }}
+            >
+              <tool.Icon className="w-8 h-8" />
             </div>
+
+            {/* Title */}
+            <h3 className="mt-6 text-lg font-semibold text-gray-800 group-hover:text-primary transition-colors">
+              {tool.title}
+            </h3>
+
+            {/* Description */}
+            <p className="mt-2 text-gray-500 text-sm leading-relaxed">
+              {tool.description}
+            </p>
+          </div>
         ))}
       </div>
     </div>
