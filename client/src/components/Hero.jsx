@@ -6,10 +6,7 @@ const Hero = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="relative flex flex-col items-center justify-center w-full min-h-screen px-6 sm:px-16 lg:px-28 bg-[url(/gradientBackground.png)] bg-cover bg-no-repeat text-center">
-
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/70 to-white/90 backdrop-blur-[2px]" />
+    <div className="relative flex flex-col items-center justify-center w-full min-h-screen px-6 sm:px-16 lg:px-28 bg-[url(/bg.png)] bg-cover bg-no-repeat text-center">
 
       {/* Content */}
       <div className="relative z-10 max-w-4xl mx-auto">

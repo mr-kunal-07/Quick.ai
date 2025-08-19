@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Route, Routes, Navigate, useNavigate, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { useUser } from '@clerk/clerk-react'
 import Home from './pages/Home'
 import Layout from './pages/Layout'
