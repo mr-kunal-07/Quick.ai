@@ -1,9 +1,7 @@
 import React from 'react'
-import { assets } from '../assets/assets'
 import { useNavigate } from 'react-router-dom'
 import { ArrowRight, LogOutIcon } from 'lucide-react';
 import { useClerk, UserButton, useUser } from '@clerk/clerk-react'
-
 
 const Navbar = () => {
 
@@ -11,11 +9,14 @@ const Navbar = () => {
     const { user } = useUser();
     const { openSignIn } = useClerk();
 
-
-
     return (
         <div>
-            <div className='fixed flex z-5 w-full backdrop:blur-2xl justify-between items-center py-3 px-4 sm:px-20 xl:px-32  '>
+            <div
+                className='
+                    fixed flex z-50 w-full justify-between items-center py-3 px-4 sm:px-20 xl:px-32
+                    bg-white/20 backdrop-blur-lg border border-white/30 rounded-xl shadow-md
+                '
+            >
                 <div
                     onClick={() => navigate('/')}
                     className="flex items-center gap-2 cursor-pointer select-none"
@@ -26,14 +27,25 @@ const Navbar = () => {
                     </span>
                 </div>
 
-                {
-                    user ? <UserButton />
-                        :
-                        (
-                            <button onClick={openSignIn} className='flex items-center gap-2 text-sm rounded-full cursor-pointer bg-primary text-white px-10 py-2.5'>Get started <ArrowRight className='w-4 h-4' /> </button>
-                        )
-                }
+                {user ? (
+                    <UserButton />
+                ) : (
+                    <button
+                        onClick={openSignIn}
+                        className="
+    flex items-center gap-2 text-sm font-medium rounded-full 
+    bg-gradient-to-r from-primary to-purple-800 cursor-pointer 
+    text-white px-8 py-3 
+    shadow-lg hover:shadow-xl 
+    transition-all duration-300 
+    transform hover:-translate-y-1 
+    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400
+  "
+                    >
+                        Get started <ArrowRight className="w-5 h-5" />
+                    </button>
 
+                )}
             </div>
         </div>
     )
